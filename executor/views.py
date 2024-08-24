@@ -3,7 +3,14 @@ from rest_framework.response import Response
 from rest_framework import status
 import subprocess
 
+from executor.models import CodeSnippet
+from executor.serializers import CodeSnippetSerializers
+
+
 class CodeExecutionView(APIView):
+    serializer_class =  CodeSnippetSerializers
+    queryset = CodeSnippet.objects.all()
+    
     def post(self, request, *args, **kwargs):
         code = request.data.get("code")
         language = request.data.get("language")

@@ -1,6 +1,6 @@
 from django.urls import path
-from .views import CodeExecutionView
+from . import views
 
 urlpatterns = [
-    path('execute/', CodeExecutionView.as_view(), name='execute-code'),
+    path('execute/', views.CodeExecutionView.as_view(), name='execute-code'),
 ]
